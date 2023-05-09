@@ -49,7 +49,7 @@ const ListTopics = ({ selectedID, setSelectedTopic, mode }) => {
 
    return (
       <div className={styles.topics}>
-         {mode == 'tag' &&
+         {mode === 'tag' &&
             <TagCloud
                maxSize={fontSizes[5]}
                minSize={fontSizes[0]}
@@ -59,18 +59,20 @@ const ListTopics = ({ selectedID, setSelectedTopic, mode }) => {
                }}
                renderer={customRenderer}
             />}
-         {mode == 'word' &&
+         {mode === 'word' &&
             <WordCloud
                data={data}
                font={'Segoe UI'}
                rotate={0}
+               height={200}
                fontSize={(word) => getFontSize(word.value)}
                fill={(word) => getColor(word.sentimentScore)}
-               padding={20}
+               padding={20}               
                onWordClick={(event, d) => {
                   setSelectedTopic(d.topic)
                }}
-            />}
+               onWordMouseOver={(event,word) => {event.target.style.cursor='pointer';}}
+      />}
       </div>
    )
 }

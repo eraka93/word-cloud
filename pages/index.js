@@ -13,10 +13,8 @@ export default function Home() {
   const [modeCloud, setModeCloud] = useState('word')
 
   const onChange = () => {
-    setModeCloud(modeCloud == 'word' ? 'tag' : 'word')
+    setModeCloud(modeCloud === 'word' ? 'tag' : 'word')
   }
-
-  console.log(modeCloud)
 
   return (
     <div className={styles.container}>
@@ -32,7 +30,15 @@ export default function Home() {
           My Topics Challenge
         </h1>
 
-        <Switch onChange={onChange} defaultChecked checkedChildren={'WORD-CLOUD'} unCheckedChildren={'TAG-CLOUD'} />
+        <div className={styles.switch}>
+          <Switch 
+            onChange={onChange} 
+            defaultChecked 
+            checkedChildren={'WORD-CLOUD'} 
+            unCheckedChildren={'TAG-CLOUD'} 
+          />
+        </div>
+
         <div className={styles.content}>
 
           <ListTopics selectedID={selectedTopic.id} setSelectedTopic={setSelectedTopic} mode={modeCloud} />
