@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Head from 'next/head'
 import { Switch } from 'antd';
+import { LinkedinOutlined } from '@ant-design/icons'
 
 import styles from '../styles/Home.module.css'
 
@@ -10,10 +11,10 @@ import ListTopics from '../components/ListTopics'
 
 export default function Home() {
   const [selectedTopic, setSelectedTopic] = useState([]);
-  const [modeCloud, setModeCloud] = useState('word')
+  const [modeCloud, setModeCloud] = useState('tag')
 
   const onChange = () => {
-    setModeCloud(modeCloud == 'word' ? 'tag' : 'word')
+    setModeCloud(modeCloud == 'tag' ? 'word' : 'tag')
   }
 
   console.log(modeCloud)
@@ -32,17 +33,18 @@ export default function Home() {
           My Topics Challenge
         </h1>
 
-        <Switch onChange={onChange} defaultChecked checkedChildren={'WORD-CLOUD'} unCheckedChildren={'TAG-CLOUD'} />
+        <Switch onChange={onChange} defaultChecked unCheckedChildren={'WORD-CLOUD'} checkedChildren={'TAG-CLOUD'} />
+
+
         <div className={styles.content}>
-
           <ListTopics selectedID={selectedTopic.id} setSelectedTopic={setSelectedTopic} mode={modeCloud} />
-
           <Details selectedTopic={selectedTopic} />
         </div>
 
       </main>
 
       <footer className={styles.footer}>
+
         <a
           href="https://www.linkedin.com/in/milan-erakovic-910486236/"
           target="_blank"
@@ -50,6 +52,7 @@ export default function Home() {
         >
           Created by Milan Erakovic
         </a>
+        <LinkedinOutlined />
       </footer>
     </div>
   )

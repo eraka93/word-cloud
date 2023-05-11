@@ -8,14 +8,16 @@ import styles from '../styles/Home.module.css'
 const ListTopics = ({ selectedID, setSelectedTopic, mode }) => {
    const topics = topicsData.topics
 
-   const data = topics.map((topic) => ({
+   //data for WordCloud
+   const dataCloud = topics.map((topic) => ({
       text: topic.label,
       value: topic.volume,
       sentimentScore: topic.sentimentScore,
       topic: topic
    }));
 
-   const data2 = topics.map((topic) => ({
+   // data for TagCloud
+   const dataTag = topics.map((topic) => ({
       value: topic.label,
       count: topic.volume,
       topic: topic
@@ -40,7 +42,7 @@ const ListTopics = ({ selectedID, setSelectedTopic, mode }) => {
    }
 
    const customRenderer = (tag) => {
-      const color = tag.topic.sentimentScore > 60 ? "#2ca02c" : tag.topic.sentimentScore < 40 ? "#d62728" : "#7f7f7f"
+      const color = getColor(tag.topic.sentimentScore)
       const fontSize = getFontSize(tag.count)
       return (
          <span style={{ color: color, fontSize: fontSize, padding: 10, cursor: 'pointer', textDecorationLine: selectedID == tag.topic.id ? 'underline' : 'none' }}>{tag.value}</span>
@@ -53,24 +55,35 @@ const ListTopics = ({ selectedID, setSelectedTopic, mode }) => {
             <TagCloud
                maxSize={fontSizes[5]}
                minSize={fontSizes[0]}
-               tags={data2}
+               tags={dataTag}
                onClick={(tag) => {
                   setSelectedTopic(tag.topic)
                }}
                renderer={customRenderer}
             />}
          {mode == 'word' &&
-            <WordCloud
-               data={data}
-               font={'Segoe UI'}
-               rotate={0}
-               fontSize={(word) => getFontSize(word.value)}
-               fill={(word) => getColor(word.sentimentScore)}
-               padding={20}
-               onWordClick={(event, d) => {
-                  setSelectedTopic(d.topic)
-               }}
-            />}
+            <>
+               {/* <div className={styles.wordCloud}>
+                  <WordCloud
+                     data={dataCloud}
+                     font={'Segoe UI'}
+                     rotate={0}
+                     padding={20}
+                     height={200}
+                     fontSize={(word) => getFontSize(word.value)}
+                     fill={(word) => getColor(word.sentimentScore)}
+                     onWordClick={(event, d) => {
+                        setSelectedTopic(d.topic)
+                     }}
+                  />
+               </div> */}
+               {/* This was Word Cloud from react-d3-cloud but dont working good with Next.JS because SSR */}
+               <div>
+                  <h2>Word Cloud</h2>
+                  <p>Read and remove comments from ListTopic. from 66 to 79 line</p>
+               </div>
+            </>
+         }
       </div>
    )
 }

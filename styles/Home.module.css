@@ -1,13 +1,12 @@
 .container {
-  padding: 0 2rem;
+  background-color: aliceblue;
+
 }
 
 .main {
-  min-height: 100vh;
-  padding: 2rem 0;
+  padding: 2rem;
+  min-height: 90vh;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
 }
 
 .footer {
@@ -23,12 +22,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-right: 5px;
 }
 
 .title {
-  padding: 1rem;
-  line-height: 1.15;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .selected {
@@ -37,12 +35,13 @@
 
 .content {
   display: flex;
-  margin-top: 2rem;
+  padding-top: 2rem;
 }
 
 .topics {
   flex: 70;
-  border-right: 1px solid #eaeaea;
+  border-right: 2px solid #eaeaea;
+  padding: 1rem
 }
 
 .topic:hover {
@@ -60,4 +59,8 @@
 
 .tag {
   background-color: green;
+}
+
+.wordCloud:only-child:hover {
+  cursor: pointer;
 }
