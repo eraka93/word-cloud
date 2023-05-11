@@ -1,12 +1,12 @@
 .container {
-  padding: 0 2rem;
+  background-color: aliceblue;
+
 }
 
 .main {
-  min-height: 100vh;
+  padding: 2rem;
+  min-height: 90vh;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
 }
 
 .footer {
@@ -22,16 +22,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-right: 5px;
 }
 
 .title {
-  padding: 1vw;
-  line-height: 1.15;
-  font-size: 5vw;
-}
-
-.switch {
-  padding:1rem;
+  font-size: 2rem;
 }
 
 .selected {
@@ -40,11 +35,13 @@
 
 .content {
   display: flex;
+  padding-top: 2rem;
 }
 
 .topics {
   flex: 70;
-  border-right: 1px solid #eaeaea;
+  border-right: 2px solid #eaeaea;
+  padding: 1rem
 }
 
 .topic:hover {
@@ -53,18 +50,17 @@
 
 .details {
   flex: 30;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 
 .details p {
-  font-size: 2vw;
-  margin-top:0;
-}
-
-.details div {
-  font-size: 1.5vw;
+  font-size: 1.2rem;
 }
 
 .tag {
   background-color: green;
+}
+
+.wordCloud:only-child:hover {
+  cursor: pointer;
 }
