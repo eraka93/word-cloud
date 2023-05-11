@@ -33,9 +33,9 @@ Create a word cloud that displays the topics in the topics.json file
 
 I have created two options for displaying topics, which can be toggled using the Switch button from the Ant Design collection.
 
-The first option is implemented using the `react-d3-cloud` library. The Word-cloud option displays topics in a cloud shape, but I wasn't able to customize the styling of each word individually, and because this is Next.JS project with SSR this library don't work very well. As a result, I decided to hide the first option with comments in code in ListTopics.js file.
+The first option is implemented using the `react-tagcloud` library. The Tag-cloud option displays topics in a line shape with varying font sizes and colors based on the parameters of volume and sentimentScore.
 
-The second option is implemented using the `react-tagcloud` library. The Tag-cloud option displays topics in a line shape with varying font sizes and colors based on the parameters of volume and sentimentScore.
+The second option is implemented using the `react-d3-cloud` library. The Word-cloud option displays topics in a cloud shape, but I wasn't able to customize the styling of each word individually, and because this is Next.JS project with SSR this library don't work very well. As a result, I decided to hide the first option with comments in code in ListTopics.js file.
 
 The page is divided into two columns, with topics listed on the left-hand side and information about each topic displayed on the right-hand side after it is clicked.
 
