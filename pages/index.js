@@ -17,8 +17,6 @@ export default function Home() {
     setModeCloud(modeCloud == 'tag' ? 'word' : 'tag')
   }
 
-  console.log(modeCloud)
-
   return (
     <div className={styles.container}>
       <Head>
@@ -34,7 +32,6 @@ export default function Home() {
         </h1>
 
         <Switch onChange={onChange} defaultChecked unCheckedChildren={'WORD-CLOUD'} checkedChildren={'TAG-CLOUD'} />
-
 
         <div className={styles.content}>
           <ListTopics selectedID={selectedTopic.id} setSelectedTopic={setSelectedTopic} mode={modeCloud} />
