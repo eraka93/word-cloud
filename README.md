@@ -31,6 +31,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 Create a word cloud that displays the topics in the topics.json file
 
+*Word Cloud 
+![alt text](https://github.com/eraka93/word-cloud/blob/main/Word%20Cloud%20Next.jpg)
+
+*Tag Cloud
+![alt text](https://github.com/eraka93/word-cloud/blob/main/Tag%20Cloud%20Next.jpg)
+
+
 I have created two options for displaying topics, which can be toggled using the Switch button from the Ant Design collection.
 
 The first option is implemented using the `react-tagcloud` library. The Tag-cloud option displays topics in a line shape with varying font sizes and colors based on the parameters of volume and sentimentScore.
